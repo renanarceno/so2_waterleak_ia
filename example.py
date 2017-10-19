@@ -36,11 +36,11 @@ def get_iris_data():
                 vazamento = line.strip().split(",")
                 if i % 2 == 0:
                     train_x.append([int(pessoas_predio), int(sensor_vazamento), int(sensor_presenca),
-                                    int(segundo_medida), int(horario_limpeza), int(dia_util)])
+                                    int(horario_limpeza), int(dia_util)])
                     train_y.append([int(vazamento)])
                 else:
                     test_x.append([int(pessoas_predio), int(sensor_vazamento), int(sensor_presenca),
-                                   int(segundo_medida), int(horario_limpeza), int(dia_util)])
+                                   int(horario_limpeza), int(dia_util)])
                     test_y.append([int(vazamento)])
                 i = i + 1
 
@@ -51,7 +51,7 @@ def main():
     train_x, test_x, train_y, test_y = get_iris_data()
 
     # Layer's sizes
-    x_size = 6  # Number of input nodes
+    x_size = 5  # Number of input nodes
     h_size = 256  # Number of hidden nodes
     y_size = 1  # Number of outcomes 0 or 1
 
@@ -60,10 +60,10 @@ def main():
     y = tf.placeholder(tf.float32, shape=[None, y_size])
 
     # Weight initializations
-    w_1 = tf.Variable((x_size, h_size))
+    w = tf.Variable([[.3], [1.], [1.], [.3], [.5]], tf.float32)
 
     # Forward propagation
-    predict = tf.nn.sigmoid(tf.matmul(x, w_1))
+    predict = tf.nn.sigmoid(tf.matmul(x, w))
 
     # Backward propagation
     cost = tf.reduce_mean((y-predict)**2)
@@ -74,7 +74,7 @@ def main():
     init = tf.global_variables_initializer()
     sess.run(init)
 
-    for epoch in range(100):
+    for epoch in range(1):
         # Train with each example
         for i in range(len(train_x)):
             sess.run(updates, feed_dict={x: train_x[i: i + 1], y: train_y[i: i + 1]})
@@ -85,7 +85,7 @@ def main():
         print("Epoch = %d, train accuracy = %.2f%%, test accuracy = %.2f%%" % (
             epoch + 1, 100. * train_accuracy, 100. * test_accuracy))
 
-    var = sess.run(tf.argmax(x, 1), feed_dict={x: [4, 1, 0, 0, 0, 1]})
+    var = sess.run(predict, feed_dict={x: [[30, 1, 0, 0, 1], [4, 0, 0, 0, 1], [4, 1, 0, 0, 1], [4, 1, 1, 0, 1]]})
     print(var)
     sess.close()
 

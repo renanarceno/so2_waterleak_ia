@@ -27,7 +27,7 @@ tf.logging.set_verbosity(tf.logging.INFO)
 COLUMNS = ["pessoas_predio", "sensor_vazamento", "sensor_presenca",
            "segundo_medida", "horario_limpeza", "dia_util", "vazamento"]
 FEATURES = ["pessoas_predio", "sensor_vazamento", "sensor_presenca",
-            "segundo_medida", "horario_limpeza", "dia_util"]
+            "horario_limpeza", "dia_util"]
 LABEL = "vazamento"
 
 
@@ -56,7 +56,7 @@ def main(unused_argv):
                                           model_dir="/tmp/hidro")
 
     # Train
-    regressor.train(input_fn=get_input_fn(training_set), steps=5000)
+    regressor.train(input_fn=get_input_fn(training_set), steps=15000)
 
     # Evaluate loss over one epoch of test_set.
     ev = regressor.evaluate(input_fn=get_input_fn(test_set, num_epochs=1))
@@ -67,7 +67,7 @@ def main(unused_argv):
     y = regressor.predict(input_fn=get_input_fn(prediction_set, num_epochs=1, shuffle=False))
     # .predict() returns an iterator of dicts; convert to a list and print
     # predictions
-    predictions = list(p["predictions"] for p in itertools.islice(y, 6))
+    predictions = list(p["predictions"] for p in itertools.islice(y, 10))
     print("Predictions: {}".format(str(predictions)))
 
 
