@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a28545b-9047-469a-ae80-b604c57d4d71" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mnist.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/epandas.py" afterPath="$PROJECT_DIR$/epandas.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example.py" afterPath="$PROJECT_DIR$/example.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hidro.csv" afterPath="$PROJECT_DIR$/hidro.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hidro_neural.py" afterPath="$PROJECT_DIR$/hidro_neural.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hidro_pred.csv" afterPath="$PROJECT_DIR$/hidro_pred.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hidro_test.csv" afterPath="$PROJECT_DIR$/hidro_test.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hidro_train.csv" afterPath="$PROJECT_DIR$/hidro_train.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,10 +18,10 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/water_leak$example.coverage" NAME="example Coverage Results" MODIFIED="1508444960972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/water_leak$my_mnist.coverage" NAME="my_mnist Coverage Results" MODIFIED="1508452087433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/water_leak$my_mnist.coverage" NAME="my_mnist Coverage Results" MODIFIED="1508527723913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/water_leak$Unnamed.coverage" NAME="example Coverage Results" MODIFIED="1508365315559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/water_leak$pandinhas.coverage" NAME="pandinhas Coverage Results" MODIFIED="1508445995915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/water_leak$split.coverage" NAME="split Coverage Results" MODIFIED="1508362955481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/water_leak$split.coverage" NAME="split Coverage Results" MODIFIED="1508526823213" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -37,8 +38,8 @@
       <file leaf-file-name="example.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="462">
+              <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="26" />
               <folding>
                 <element signature="e#349#372#0" expanded="true" />
               </folding>
@@ -46,11 +47,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="hidro.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hidro.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="6914" column="0" lean-forward="false" selection-start-line="6914" selection-start-column="0" selection-end-line="6914" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="epandas.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/epandas.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="53" column="19" lean-forward="false" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
+            <state relative-caret-position="542">
+              <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
               <folding>
                 <element signature="e#677#715#0" expanded="true" />
               </folding>
@@ -58,41 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mnist.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mnist.py">
+      <file leaf-file-name="hidro_neural.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hidro_neural.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="77" column="67" lean-forward="false" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hidro_test.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hidro_test.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="65" lean-forward="false" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hidro_pred.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hidro_pred.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="split_csv.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/split_csv.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state relative-caret-position="362">
+              <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -112,10 +93,12 @@
       <find>test_X</find>
       <find>_read_csv_doc</find>
       <find>float</find>
+      <find>int</find>
     </findStrings>
     <replaceStrings>
       <replace>test_x</replace>
       <replace>int</replace>
+      <replace>float</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -130,11 +113,13 @@
         <option value="$PROJECT_DIR$/hidro_p.csv" />
         <option value="$PROJECT_DIR$/split_csv.py" />
         <option value="$PROJECT_DIR$/hidro_pred.csv" />
-        <option value="$PROJECT_DIR$/hidro.csv" />
         <option value="$PROJECT_DIR$/example.py" />
         <option value="$PROJECT_DIR$/epandas.py" />
         <option value="$PROJECT_DIR$/hidro_train.csv" />
         <option value="$PROJECT_DIR$/mnist.py" />
+        <option value="$USER_HOME$/Downloads/hidro_alterado - Página1.csv" />
+        <option value="$PROJECT_DIR$/hidro.csv" />
+        <option value="$PROJECT_DIR$/hidro_neural.py" />
       </list>
     </option>
   </component>
@@ -427,7 +412,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="water_leak" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mnist.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hidro_neural.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -461,7 +446,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32881" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -529,6 +514,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="34" column="27" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="34" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#23#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -580,14 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/split_csv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="17" lean-forward="false" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/tensorflow/python/estimator/estimator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -596,39 +576,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hidro_pred.csv">
+    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/tensorflow/python/ops/math_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+        <state relative-caret-position="205">
+          <caret line="191" column="4" lean-forward="false" selection-start-line="191" selection-start-column="4" selection-end-line="191" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/epandas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="53" column="19" lean-forward="false" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-          <folding>
-            <element signature="e#677#715#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hidro.csv">
+    <entry file="file://$USER_HOME$/Downloads/hidro_alterado - Página1.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="6" lean-forward="false" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="6914" selection-end-column="24" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#349#372#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -640,26 +600,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/split_csv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hidro_train.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="20">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/tensorflow/python/ops/math_ops.py">
+    <entry file="file://$PROJECT_DIR$/hidro_pred.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1775">
-          <caret line="1693" column="4" lean-forward="false" selection-start-line="1693" selection-start-column="4" selection-end-line="1693" selection-end-column="4" />
+        <state relative-caret-position="200">
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mnist.py">
+    <entry file="file://$PROJECT_DIR$/example.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="77" column="67" lean-forward="false" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
+        <state relative-caret-position="462">
+          <caret line="87" column="26" lean-forward="false" selection-start-line="87" selection-start-column="19" selection-end-line="87" selection-end-column="26" />
+          <folding>
+            <element signature="e#349#372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/epandas.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="63" column="43" lean-forward="true" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
+          <folding>
+            <element signature="e#677#715#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hidro.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="6914" column="0" lean-forward="false" selection-start-line="6914" selection-start-column="0" selection-end-line="6914" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.5/site-packages/tensorflow/python/ops/array_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="1370" column="4" lean-forward="false" selection-start-line="1370" selection-start-column="4" selection-end-line="1370" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hidro_neural.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
           <folding />
         </state>
       </provider>

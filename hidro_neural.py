@@ -23,12 +23,8 @@ def get_batch(filename):
         next(testFile)
         for line in testFile:
             pessoas_predio, sensor_vazamento, sensor_presenca, segundo_medida, horario_limpeza, dia_util, vazamento = line.strip().split(",")
-            xt.append([int(pessoas_predio), int(sensor_vazamento), int(sensor_presenca), int(horario_limpeza), int(dia_util)])
-            ivazamento = int(vazamento)
-            if ivazamento == 1:
-                yt.append([0, ivazamento])
-            else:
-                yt.append([1, ivazamento])
+            xt.append([float(pessoas_predio), float(sensor_vazamento), float(sensor_presenca), float(horario_limpeza), float(dia_util)])
+            yt.append([float(vazamento), 0.])
             i += 1
     return xt, yt
 
@@ -74,5 +70,8 @@ for _ in range(100):
 correct_prediction = tf.equal(tf.argmax(y, 1), tf.argmax(y_, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
+# Testa entradas e retorna um resultado
+prediction = sess.run(y, feed_dict={x: [[0., 0., 0., 0., 0.]]})
+print("Prediction: " + str(prediction))
 xtest_batch, ytest_batch = get_test_batch()
 print(sess.run(accuracy, feed_dict={x: xtest_batch, y_: ytest_batch}))
