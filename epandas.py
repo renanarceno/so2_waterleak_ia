@@ -24,10 +24,8 @@ import tensorflow as tf
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
-COLUMNS = ["pessoas_predio", "sensor_vazamento", "sensor_presenca",
-           "segundo_medida", "horario_limpeza", "dia_util", "vazamento"]
-FEATURES = ["pessoas_predio", "sensor_vazamento", "sensor_presenca",
-            "horario_limpeza", "dia_util"]
+COLUMNS = ["pessoas_predio", "maquinas", "vazao_total", "vazao_1", "vazao_2", "vazao_3", "vazamento", "normal"]
+FEATURES = ["pessoas_predio", "maquinas", "vazao_total", "vazao_1", "vazao_2", "vazao_3"]
 LABEL = "vazamento"
 
 
@@ -50,13 +48,13 @@ def main(unused_argv):
     # Feature cols
     feature_cols = [tf.feature_column.numeric_column(k) for k in FEATURES]
 
-    # Build 2 layer fully connected DNN with 10, 10 units respectively.
+    # Build 2 layer fully connected DNN with 30, 30 units respectively.
     regressor = tf.estimator.DNNRegressor(feature_columns=feature_cols,
-                                          hidden_units=[10, 10],
+                                          hidden_units=[30, 30],
                                           model_dir="/tmp/hidro")
 
     # Train
-    regressor.train(input_fn=get_input_fn(training_set), steps=15000)
+    regressor.train(input_fn=get_input_fn(training_set), steps=10000)
 
     # Evaluate loss over one epoch of test_set.
     ev = regressor.evaluate(input_fn=get_input_fn(test_set, num_epochs=1))

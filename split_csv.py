@@ -1,8 +1,8 @@
-originalFilename = "hidro.csv"
+originalFilename = "hidrosimulation.csv"
 
-test_file = "hidro_test.csv"
-train_file = "hidro_train.csv"
-predict_file = "hidro_pred.csv"
+test_file = "hidrosimulation_test.csv"
+train_file = "hidrosimulation_train.csv"
+predict_file = "hidrosimulation_pred.csv"
 
 with open(originalFilename, "r") as file:
     i = 0
