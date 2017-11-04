@@ -3,14 +3,12 @@ from __future__ import division
 from __future__ import print_function
 
 import os
-import shutil
 import itertools
 
 import pandas as pd
 import tensorflow as tf
 
 # tf.logging.set_verbosity(tf.logging.INFO)
-from tensorflow.python.framework.errors_impl import InvalidArgumentError
 
 COLUMNS = ["pessoas", "maquinas", "vazao_total", "vazao_1", "sensor_p1", "vazao_2", "sensor_p2", "vazao_3", "sensor_p3", "vazamento", "t_seg", "hora"]
 FEATURES_VAZ = ["pessoas", "maquinas", "vazao_total", "vazao_1", "sensor_p1", "vazao_2", "sensor_p2", "vazao_3", "sensor_p3", "vazamento"]
