@@ -5,7 +5,7 @@ import csv
 import time
 
 
-def get_pessoas_default():
+def get_int_default_from_file():
     original_filename = "hidro2.csv"
     with open(original_filename, "r") as file:
         reader = csv.DictReader(file)
@@ -14,7 +14,7 @@ def get_pessoas_default():
         for row in reader:
             row_seg = int(row['t_seg'])
             if (now - 20) <= row_seg <= (now + 20):
-                return int(row['pessoas'])
+                return int(row['pessoas']), int(row['maquinas'])
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -37,7 +37,7 @@ class MainHandler(tornado.web.RequestHandler):
                     &vazamento=0
         """
         pessoas = int(self.get_query_argument("pessoas", default=-1))
-        maquinas = int(self.get_query_argument("maquinas", default=0))
+        maquinas = int(self.get_query_argument("maquinas", default=-1))
         vazao_total = float(self.get_query_argument("vazao_total", default=0))
         vazao_1 = float(self.get_query_argument("vazao_1", default=0))
         sensor_p1 = int(self.get_query_argument("sensor_p1", default=0))
@@ -47,10 +47,12 @@ class MainHandler(tornado.web.RequestHandler):
         sensor_p3 = int(self.get_query_argument("sensor_p3", default=0))
         vazamento = int(self.get_query_argument("vazamento", default=0))
 
-        if pessoas == -1:
-            pessoas = get_pessoas_default()
-
-        print(pessoas)
+        if pessoas == -1 or maquinas == -1:
+            pessoas_aux, maquinas_aux = get_int_default_from_file()
+            if pessoas == -1:
+                pessoas = pessoas_aux
+            if maquinas == -1:
+                maquinas = maquinas_aux
 
         loss, prediction = neural.predict_value(pessoas, maquinas, vazao_total, vazao_1, sensor_p1, vazao_2, sensor_p2, vazao_3, sensor_p3, vazamento)
         vazando = abs(round(prediction))
