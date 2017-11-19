@@ -3,6 +3,8 @@ import tornado.web
 import hidro_neural as neural
 import csv
 import time
+import json
+import sqlite3 as db
 
 
 def get_int_default_from_file():
@@ -17,10 +19,13 @@ def get_int_default_from_file():
                 return int(row['pessoas']), int(row['maquinas'])
 
 
-class MainHandler(tornado.web.RequestHandler):
-    def data_received(self, chunk):
-        pass
+def check_vazamento(maquinas, pessoas, sensor_p1, sensor_p2, sensor_p3, vazamento, vazao_1, vazao_2, vazao_3, vazao_total):
+    loss, prediction = neural.predict_value(pessoas, maquinas, vazao_total, vazao_1, sensor_p1, vazao_2, sensor_p2, vazao_3, sensor_p3, vazamento)
+    vazando = abs(round(prediction))
+    return loss, vazando
 
+
+class MainHandler(tornado.web.RequestHandler):
     def get(self):
         """
             http://localhost:8080/
@@ -54,8 +59,35 @@ class MainHandler(tornado.web.RequestHandler):
             if maquinas == -1:
                 maquinas = maquinas_aux
 
-        loss, prediction = neural.predict_value(pessoas, maquinas, vazao_total, vazao_1, sensor_p1, vazao_2, sensor_p2, vazao_3, sensor_p3, vazamento)
-        vazando = abs(round(prediction))
+        loss, vazando = check_vazamento(maquinas, pessoas, sensor_p1, sensor_p2, sensor_p3, vazamento, vazao_1, vazao_2, vazao_3, vazao_total)
+        if vazando == 0:
+            self.write("<font color=\"blue\">NÃO</font> está com vazamento")
+        else:
+            self.write("<font color=\"red\">ESTÁ</font> com vazamento")
+        self.write("<br>")
+        self.write("Entropia rede neural: " + str(loss))
+
+
+class PostHandler(tornado.web.RequestHandler):
+    def post(self):
+        data = json.loads(self.request.body.decode('utf-8'))
+        con = db.connect('water_flow')
+        con.executemany("INSERT INTO sensor_data(data, x, y, z, valor, unidade) VALUES (?,?,?,?,?,?)", (data['data'], data['x'], data['y'], data['z'], data['valor'], data['unidade']))
+        con.commit()
+        con.close()
+
+
+class CheckHandler(tornado.web.RequestHandler):
+    def get(self):
+        con = db.connect('water_flow.db.db')
+        cursor = con.cursor()
+        cursor.execute("SELECT * FROM sensor_data WHERE checado = 0 ORDER BY _id DESC LIMIT 7")  # in our example, theres 7 sensors
+        sensor_values = []
+        for entry in cursor.fetchall():
+            sensor_values.append(entry[5])  # 5 = valor
+        pessoas_aux, maquinas_aux = get_int_default_from_file()
+        loss, vazando = check_vazamento(maquinas_aux, pessoas_aux, sensor_values[0], sensor_values[1], 0, sensor_values[2], sensor_values[3], sensor_values[4], sensor_values[5], sensor_values[6])
+        con.close()
         if vazando == 0:
             self.write("<font color=\"blue\">NÃO</font> está com vazamento")
         else:
@@ -67,11 +99,13 @@ class MainHandler(tornado.web.RequestHandler):
 def make_app():
     return tornado.web.Application([
         (r"/prediction", MainHandler),
+        (r"/put", PostHandler),
+        (r"/check", CheckHandler),
     ])
 
 
 if __name__ == "__main__":
     app = make_app()
     app.listen(8080)
-    print("Starting server")
+    print("Server started")
     tornado.ioloop.IOLoop.current().start()
